@@ -16,6 +16,16 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">Features</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('set-locale', 'en') }}" class="btn btn-primary">English</a>
+                            <a href="{{ route('set-locale', 'id') }}" class="btn btn-primary">Indonesia</a>
+                        </li>
+                        <li class="nav-item">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="btn btn-danger">Logout</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>

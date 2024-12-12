@@ -49,7 +49,9 @@ class MahasiswaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $datamahasiswa = Mahasiswa::join('jurusan as jr', 'jr.id', '=', 'mahasiswa.jurusan_id')->where('mahasiswa.id', '=', $id)->get();
+
+        return view('mahasiswa.show', compact('datamahasiswa'));
     }
 
     /**
@@ -69,7 +71,7 @@ class MahasiswaController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'nim' => 'required | unique:mahasiswa,nim,' .$mahasiswa->id,
+            'nim' => 'required | unique:mahasiswa,nim,' . $mahasiswa->id,
             'jurusan_id' => 'required',
         ]);
 
